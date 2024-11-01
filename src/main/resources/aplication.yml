@@ -23,3 +23,8 @@ spring:
       lifecycle-management: start-only
 server:
   port: 8080
+# spring:
+#   security:
+#     user:
+#       name: your-username
+#       password: your-password

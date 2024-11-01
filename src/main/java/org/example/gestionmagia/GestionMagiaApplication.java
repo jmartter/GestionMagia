@@ -1,6 +1,5 @@
 package org.example.gestionmagia;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,9 +10,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages = "org.example.gestionmagia")
 public class GestionMagiaApplication {
 
-    @Autowired
-    private Menu menu;
-
     public static void main(String[] args) {
         SpringApplication.run(GestionMagiaApplication.class, args);
     }
@@ -21,8 +17,8 @@ public class GestionMagiaApplication {
     @Bean
     public CommandLineRunner commandLineRunner() {
         return args -> {
-            // Display the menu
-            menu.displayMenu();
+            // Application started
+            System.out.println("Application started successfully.");
         };
     }
-} // esto se deberia ver
+}

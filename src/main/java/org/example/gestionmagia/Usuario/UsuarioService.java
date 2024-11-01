@@ -1,10 +1,11 @@
+// src/main/java/org/example/gestionmagia/Usuario/UsuarioService.java
 package org.example.gestionmagia.Usuario;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Service
@@ -29,5 +30,9 @@ public class UsuarioService {
 
     public Usuario findById(Long id) {
         return usuarioRepository.findById(id).orElse(null);
+    }
+
+    public void truncateTable() {
+        entityManager.createNativeQuery("TRUNCATE TABLE usuario").executeUpdate();
     }
 }

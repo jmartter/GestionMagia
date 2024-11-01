@@ -1,8 +1,7 @@
 package org.example.gestionmagia.Usuario;
 
 
-import javax.persistence.*;
-
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "usuario")

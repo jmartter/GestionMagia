@@ -3,7 +3,6 @@ package org.example.gestionmagia.Usuario;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "usuario")
 public class Usuario {

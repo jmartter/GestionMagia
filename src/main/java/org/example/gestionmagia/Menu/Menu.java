@@ -1,6 +1,7 @@
-// Menu.java
+// src/main/java/org/example/gestionmagia/Menu/Menu.java
 package org.example.gestionmagia.Menu;
 
+import org.example.gestionmagia.Truncate.Borrado;
 import org.example.gestionmagia.Hechizos.Hechizo;
 import org.example.gestionmagia.Usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,9 @@ public class Menu {
 
     @Autowired
     private Hechizo hechizo;
+
+    @Autowired
+    private Borrado borrado;
 
     public void displayMenu(Usuario usuario) {
         Scanner scanner = new Scanner(System.in);
@@ -42,6 +46,8 @@ public class Menu {
                 case 5:
                     System.out.println("Saliendo...");
                     hechizo.cerrarExecutor(); // Cierra el ExecutorService al final
+                    borrado.truncateUsuarioTable();
+                    borrado.truncateAlmacenamientoTable();
                     scanner.close();
                     System.exit(0);
                 default:

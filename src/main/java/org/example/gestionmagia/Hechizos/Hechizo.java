@@ -23,7 +23,6 @@ public class Hechizo {
     public void lanzarHechizo1(Usuario usuario) {
         singleThreadExecutor.submit(() -> {
             System.out.println("Pool: singleThreadExecutor, Hilo: " + Thread.currentThread().getName());
-            // Lógica del hechizo 1
             guardarAlmacenamiento(usuario, 1);
         });
     }
@@ -31,7 +30,6 @@ public class Hechizo {
     public void lanzarHechizo2(Usuario usuario) {
         singleThreadExecutor.submit(() -> {
             System.out.println("Pool: singleThreadExecutor, Hilo: " + Thread.currentThread().getName());
-            // Lógica del hechizo 2
             guardarAlmacenamiento(usuario, 2);
         });
     }
@@ -39,7 +37,6 @@ public class Hechizo {
     public void lanzarHechizo3(Usuario usuario) {
         singleThreadExecutor.submit(() -> {
             System.out.println("Pool: singleThreadExecutor, Hilo: " + Thread.currentThread().getName());
-            // Lógica del hechizo 3
             guardarAlmacenamiento(usuario, 3);
         });
     }
@@ -47,7 +44,6 @@ public class Hechizo {
     public void lanzarHechizo4(Usuario usuario) {
         singleThreadExecutor.submit(() -> {
             System.out.println("Pool: singleThreadExecutor, Hilo: " + Thread.currentThread().getName());
-            // Lógica del hechizo 4
             guardarAlmacenamiento(usuario, 4);
         });
     }

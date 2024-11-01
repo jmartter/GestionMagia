@@ -1,9 +1,10 @@
 // src/main/java/org/example/gestionmagia/Almacenamiento/Almacenamiento.java
 package org.example.gestionmagia.Almacenamiento;
 
-import jakarta.persistence.*;
+
 import org.example.gestionmagia.Usuario.Usuario;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity

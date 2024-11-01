@@ -1,4 +1,4 @@
-package org.example.gestionmagia;
+package org.example.gestionmagia.Menu;
 
 import org.example.gestionmagia.Hechizos.Hechizo;
 import org.springframework.beans.factory.annotation.Autowired;

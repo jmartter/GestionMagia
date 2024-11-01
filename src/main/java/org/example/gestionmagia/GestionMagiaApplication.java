@@ -1,5 +1,6 @@
 package org.example.gestionmagia;
 
+import org.example.gestionmagia.Menu.Menu;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;

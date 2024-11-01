@@ -4,6 +4,7 @@ import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,7 +37,9 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public Usuario save(Usuario usuario) {
+    public Object save(Usuario usuario) {
+        // Lógica para guardar el usuario
+        // Si la validación falla, se devolverá un ResponseEntity desde el aspecto
         return usuarioRepository.save(usuario);
     }
 

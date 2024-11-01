@@ -19,25 +19,25 @@ public class Hechizo {
 
     public void lanzarHechizo1() {
         executor.submit(() -> {
-            // Lógica del Hechizo 1
+
         });
     }
 
     public void lanzarHechizo2() {
         executor.submit(() -> {
-            // Lógica del Hechizo 2
+
         });
     }
 
     public void lanzarHechizo3() {
         executor.submit(() -> {
-            // Lógica del Hechizo 3
+
         });
     }
 
     public void lanzarHechizo4() {
         executor.submit(() -> {
-            // Lógica del Hechizo 4
+
         });
     }
 

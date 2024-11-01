@@ -1,4 +1,4 @@
-package org.example.gestionmagia;
+package org.example.gestionmagia.Menu;
 
 import org.example.gestionmagia.Usuario.Usuario;
 import org.example.gestionmagia.Usuario.UsuarioService;

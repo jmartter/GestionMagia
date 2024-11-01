@@ -10,4 +10,4 @@ public class GestionMagiaApplication {
     public static void main(String[] args) {
         SpringApplication.run(GestionMagiaApplication.class, args);
     }
-}
+}// dsfsdf

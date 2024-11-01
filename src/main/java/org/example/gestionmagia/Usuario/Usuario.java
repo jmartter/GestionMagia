@@ -1,4 +1,4 @@
-package org.example.gestionmagia;
+package org.example.gestionmagia.Usuario;
 
 import jakarta.persistence.*;
 

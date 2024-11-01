@@ -1,10 +1,13 @@
-package org.example.gestionmagia.aspectos;
+// Aspecto.java
+package org.example.gestionmagia.aspecto;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
 
 @Aspect
 @Component
@@ -16,7 +19,8 @@ public class Aspecto {
 
     @After("lanzarMethods()")
     public void afterLanzarMethods(JoinPoint joinPoint) {
-        System.out.println("El método " + joinPoint.getSignature().getName() + " ha sido invocado.");
-        System.out.println("Hilo actual: " + Thread.currentThread().getName());
+        String methodName = joinPoint.getSignature().getName();
+        LocalDateTime currentTime = LocalDateTime.now();
+        System.out.println("El método " + methodName + " ha sido invocado a las " + currentTime);
     }
 }

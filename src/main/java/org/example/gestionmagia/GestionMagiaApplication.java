@@ -1,3 +1,4 @@
+// GestionMagiaApplication.java
 package org.example.gestionmagia;
 
 import org.example.gestionmagia.Menu.Menu;

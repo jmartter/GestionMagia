@@ -1,3 +1,4 @@
+// Menu.java
 package org.example.gestionmagia.Menu;
 
 import org.example.gestionmagia.Hechizos.Hechizo;
@@ -39,6 +40,7 @@ public class Menu {
                     break;
                 case 5:
                     System.out.println("Saliendo...");
+                    hechizo.cerrarExecutor(); // Cierra el ExecutorService al final
                     scanner.close();
                     System.exit(0);
                 default:

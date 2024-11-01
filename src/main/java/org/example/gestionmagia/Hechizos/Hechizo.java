@@ -1,3 +1,4 @@
+// Hechizo.java
 package org.example.gestionmagia.Hechizos;
 
 import org.example.gestionmagia.hilos.ExecutorServiceFactory;
@@ -9,38 +10,39 @@ import java.util.concurrent.ExecutorService;
 @Component
 public class Hechizo {
 
+    private final ExecutorService executor;
+
     @Autowired
-    private ExecutorServiceFactory executorServiceFactory;
+    public Hechizo(ExecutorServiceFactory executorServiceFactory) {
+        this.executor = executorServiceFactory.createSingleThreadExecutor();
+    }
 
     public void lanzarHechizo1() {
-        ExecutorService executor = executorServiceFactory.createSingleThreadExecutor();
         executor.submit(() -> {
-
+            // Lógica del Hechizo 1
         });
-        executor.shutdown();
     }
 
     public void lanzarHechizo2() {
-        ExecutorService executor = executorServiceFactory.createSingleThreadExecutor();
         executor.submit(() -> {
-
+            // Lógica del Hechizo 2
         });
-        executor.shutdown();
     }
 
     public void lanzarHechizo3() {
-        ExecutorService executor = executorServiceFactory.createSingleThreadExecutor();
         executor.submit(() -> {
-
+            // Lógica del Hechizo 3
         });
-        executor.shutdown();
     }
 
     public void lanzarHechizo4() {
-        ExecutorService executor = executorServiceFactory.createSingleThreadExecutor();
         executor.submit(() -> {
-
+            // Lógica del Hechizo 4
         });
+    }
+
+    // Método para cerrar el ExecutorService al final
+    public void cerrarExecutor() {
         executor.shutdown();
     }
 }

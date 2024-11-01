@@ -26,4 +26,4 @@ public class GestionMagiaApplication {
             menu.displayMenu();
         };
     }
-}
+} // esto se deberia ver

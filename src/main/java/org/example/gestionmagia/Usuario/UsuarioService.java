@@ -1,9 +1,7 @@
-// src/main/java/org/example/gestionmagia/Usuario/UsuarioService.java
 package org.example.gestionmagia.Usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -33,4 +31,11 @@ public class UsuarioService {
         return usuarioRepository.findById(id).orElse(null);
     }
 
+    public Usuario findByNombre(String nombre) {
+        List<Usuario> usuarios = usuarioRepository.findByNombre(nombre);
+        if (usuarios.isEmpty()) {
+            return null;
+        }
+        return usuarios.get(0); // Return the first user found
+    }
 }

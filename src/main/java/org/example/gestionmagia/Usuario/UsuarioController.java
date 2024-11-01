@@ -1,4 +1,4 @@
-package org.example.gestionmagia;
+package org.example.gestionmagia.Usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

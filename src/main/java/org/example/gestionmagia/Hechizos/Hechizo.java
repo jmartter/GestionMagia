@@ -1,13 +1,14 @@
-// src/main/java/org/example/gestionmagia/Hechizos/Hechizo.java
 package org.example.gestionmagia.Hechizos;
 
 import org.example.gestionmagia.Almacenamiento.Almacenamiento;
 import org.example.gestionmagia.Almacenamiento.AlmacenamientoRepository;
 import org.example.gestionmagia.Usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.concurrent.ExecutorService;
 
 @Component
 public class Hechizo {
@@ -15,24 +16,40 @@ public class Hechizo {
     @Autowired
     private AlmacenamientoRepository almacenamientoRepository;
 
+    @Autowired
+    @Qualifier("singleThreadExecutor")
+    private ExecutorService singleThreadExecutor;
+
     public void lanzarHechizo1(Usuario usuario) {
-        // Lógica del hechizo 1
-        guardarAlmacenamiento(usuario, 1);
+        singleThreadExecutor.submit(() -> {
+            System.out.println("Pool: singleThreadExecutor, Hilo: " + Thread.currentThread().getName());
+            // Lógica del hechizo 1
+            guardarAlmacenamiento(usuario, 1);
+        });
     }
 
     public void lanzarHechizo2(Usuario usuario) {
-        // Lógica del hechizo 2
-        guardarAlmacenamiento(usuario, 2);
+        singleThreadExecutor.submit(() -> {
+            System.out.println("Pool: singleThreadExecutor, Hilo: " + Thread.currentThread().getName());
+            // Lógica del hechizo 2
+            guardarAlmacenamiento(usuario, 2);
+        });
     }
 
     public void lanzarHechizo3(Usuario usuario) {
-        // Lógica del hechizo 3
-        guardarAlmacenamiento(usuario, 3);
+        singleThreadExecutor.submit(() -> {
+            System.out.println("Pool: singleThreadExecutor, Hilo: " + Thread.currentThread().getName());
+            // Lógica del hechizo 3
+            guardarAlmacenamiento(usuario, 3);
+        });
     }
 
     public void lanzarHechizo4(Usuario usuario) {
-        // Lógica del hechizo 4
-        guardarAlmacenamiento(usuario, 4);
+        singleThreadExecutor.submit(() -> {
+            System.out.println("Pool: singleThreadExecutor, Hilo: " + Thread.currentThread().getName());
+            // Lógica del hechizo 4
+            guardarAlmacenamiento(usuario, 4);
+        });
     }
 
     private void guardarAlmacenamiento(Usuario usuario, int metodo) {
@@ -44,6 +61,6 @@ public class Hechizo {
     }
 
     public void cerrarExecutor() {
-        // Lógica para cerrar el ExecutorService si es necesario
+        singleThreadExecutor.shutdown();
     }
 }

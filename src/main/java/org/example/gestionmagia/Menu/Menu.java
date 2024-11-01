@@ -1,9 +1,9 @@
-// src/main/java/org/example/gestionmagia/Menu/Menu.java
 package org.example.gestionmagia.Menu;
 
 import org.example.gestionmagia.Truncate.Borrado;
 import org.example.gestionmagia.Hechizos.Hechizo;
 import org.example.gestionmagia.Usuario.Usuario;
+import org.example.gestionmagia.exception.PrivilegeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,28 +30,32 @@ public class Menu {
 
             int opcion = scanner.nextInt();
 
-            switch (opcion) {
-                case 1:
-                    hechizo.lanzarHechizo1(usuario);
-                    break;
-                case 2:
-                    hechizo.lanzarHechizo2(usuario);
-                    break;
-                case 3:
-                    hechizo.lanzarHechizo3(usuario);
-                    break;
-                case 4:
-                    hechizo.lanzarHechizo4(usuario);
-                    break;
-                case 5:
-                    System.out.println("Saliendo...");
-                    hechizo.cerrarExecutor(); // Cierra el ExecutorService al final
-                    borrado.truncateUsuarioTable();
-                    borrado.truncateAlmacenamientoTable();
-                    scanner.close();
-                    System.exit(0);
-                default:
-                    System.out.println("Opción no válida. Inténtalo de nuevo.");
+            try {
+                switch (opcion) {
+                    case 1:
+                        hechizo.lanzarHechizo1(usuario);
+                        break;
+                    case 2:
+                        hechizo.lanzarHechizo2(usuario);
+                        break;
+                    case 3:
+                        hechizo.lanzarHechizo3(usuario);
+                        break;
+                    case 4:
+                        hechizo.lanzarHechizo4(usuario);
+                        break;
+                    case 5:
+                        System.out.println("Saliendo...");
+                        hechizo.cerrarExecutor(); // Cierra el ExecutorService al final
+                        borrado.truncateUsuarioTable();
+                        borrado.truncateAlmacenamientoTable();
+                        scanner.close();
+                        System.exit(0);
+                    default:
+                        System.out.println("Opción no válida. Inténtalo de nuevo.");
+                }
+            } catch (PrivilegeException e) {
+                System.out.println(e.getMessage());
             }
         }
     }

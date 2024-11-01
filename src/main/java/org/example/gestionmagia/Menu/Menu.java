@@ -2,6 +2,7 @@
 package org.example.gestionmagia.Menu;
 
 import org.example.gestionmagia.Hechizos.Hechizo;
+import org.example.gestionmagia.Usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +14,7 @@ public class Menu {
     @Autowired
     private Hechizo hechizo;
 
-    public void displayMenu() {
+    public void displayMenu(Usuario usuario) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Elige un hechizo para lanzar:");
@@ -27,16 +28,16 @@ public class Menu {
 
             switch (opcion) {
                 case 1:
-                    hechizo.lanzarHechizo1();
+                    hechizo.lanzarHechizo1(usuario);
                     break;
                 case 2:
-                    hechizo.lanzarHechizo2();
+                    hechizo.lanzarHechizo2(usuario);
                     break;
                 case 3:
-                    hechizo.lanzarHechizo3();
+                    hechizo.lanzarHechizo3(usuario);
                     break;
                 case 4:
-                    hechizo.lanzarHechizo4();
+                    hechizo.lanzarHechizo4(usuario);
                     break;
                 case 5:
                     System.out.println("Saliendo...");

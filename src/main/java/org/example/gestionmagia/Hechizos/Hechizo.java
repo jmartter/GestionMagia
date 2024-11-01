@@ -1,6 +1,7 @@
 // Hechizo.java
 package org.example.gestionmagia.Hechizos;
 
+import org.example.gestionmagia.Usuario.Usuario;
 import org.example.gestionmagia.hilos.ExecutorServiceFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,27 +18,27 @@ public class Hechizo {
         this.executor = executorServiceFactory.createSingleThreadExecutor();
     }
 
-    public void lanzarHechizo1() {
+    public void lanzarHechizo1(Usuario usuario) {
         executor.submit(() -> {
-
+            // Hechizo logic
         });
     }
 
-    public void lanzarHechizo2() {
+    public void lanzarHechizo2(Usuario usuario) {
         executor.submit(() -> {
-
+            // Hechizo logic
         });
     }
 
-    public void lanzarHechizo3() {
+    public void lanzarHechizo3(Usuario usuario) {
         executor.submit(() -> {
-
+            // Hechizo logic
         });
     }
 
-    public void lanzarHechizo4() {
+    public void lanzarHechizo4(Usuario usuario) {
         executor.submit(() -> {
-
+            // Hechizo logic
         });
     }
 

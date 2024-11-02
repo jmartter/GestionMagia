@@ -36,6 +36,6 @@ public class UsuarioService {
         if (usuarios.isEmpty()) {
             return null;
         }
-        return usuarios.get(0); // Return the first user found
+        return usuarios.get(0);
     }
 }

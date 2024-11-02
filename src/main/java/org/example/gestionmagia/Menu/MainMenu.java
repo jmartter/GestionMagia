@@ -1,4 +1,3 @@
-// src/main/java/org/example/gestionmagia/Menu/MainMenu.java
 package org.example.gestionmagia.Menu;
 
 import org.example.gestionmagia.Truncate.Borrado;
@@ -29,7 +28,7 @@ public class MainMenu {
 
     public void displayMainMenu() {
         try {
-            dataInitializer.initializeData(); // Initialize data
+            dataInitializer.initializeData();
         } catch (Exception e) {
             System.out.println("Error initializing data: " + e.getMessage());
         }
@@ -44,7 +43,7 @@ public class MainMenu {
 
             try {
                 int opcion = scanner.nextInt();
-                scanner.nextLine(); // Consume newline
+                scanner.nextLine();
 
                 switch (opcion) {
                     case 1:
@@ -66,7 +65,7 @@ public class MainMenu {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Entrada no válida. Por favor, ingrese un número.");
-                scanner.nextLine(); // Clear the invalid input
+                scanner.nextLine();
             }
         }
     }

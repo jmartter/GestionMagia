@@ -1,4 +1,3 @@
-// src/main/java/org/example/gestionmagia/GestionMagiaApplication.java
 package org.example.gestionmagia;
 
 import org.example.gestionmagia.Menu.MainMenu;
@@ -18,7 +17,7 @@ public class GestionMagiaApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args){
         mainMenu.displayMainMenu();
     }
 }

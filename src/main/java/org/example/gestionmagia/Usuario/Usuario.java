@@ -1,4 +1,3 @@
-// src/main/java/org/example/gestionmagia/Usuario/Usuario.java
 package org.example.gestionmagia.Usuario;
 
 import javax.persistence.*;

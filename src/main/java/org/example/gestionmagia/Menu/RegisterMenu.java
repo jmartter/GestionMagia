@@ -1,4 +1,3 @@
-// src/main/java/org/example/gestionmagia/Menu/RegisterMenu.java
 package org.example.gestionmagia.Menu;
 
 import org.example.gestionmagia.Usuario.Usuario;
@@ -25,7 +24,7 @@ public class RegisterMenu {
             System.out.println("2. Volver al menú anterior");
 
             int opcion = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (opcion) {
                 case 1:
@@ -46,7 +45,7 @@ public class RegisterMenu {
                         nuevoUsuario.setNombre(nombre);
                         nuevoUsuario.setContraseña(contraseña);
                         nuevoUsuario.setCorreo(correo);
-                        nuevoUsuario.setAdministrador(false); // Ensure administrador is set to false
+                        nuevoUsuario.setAdministrador(false);
 
                         usuarioService.save(nuevoUsuario);
                         System.out.println("Usuario creado exitosamente.");

@@ -1,4 +1,3 @@
-// src/main/java/org/example/gestionmagia/Usuario/DataInitializer.java
 package org.example.gestionmagia.Usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;

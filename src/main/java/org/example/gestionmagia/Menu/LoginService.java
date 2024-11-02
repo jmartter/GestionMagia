@@ -1,4 +1,3 @@
-// src/main/java/org/example/gestionmagia/Menu/LoginService.java
 package org.example.gestionmagia.Menu;
 
 import org.example.gestionmagia.Usuario.Usuario;

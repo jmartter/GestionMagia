@@ -1,4 +1,3 @@
-// src/main/java/org/example/gestionmagia/Menu/LoginMenu.java
 package org.example.gestionmagia.Menu;
 
 import org.example.gestionmagia.Usuario.Usuario;
@@ -33,7 +32,7 @@ public class LoginMenu {
                     System.out.println("Nombre de usuario, contraseña o correo incorrectos. Inténtelo de nuevo.");
                 } else {
                     System.out.println("Bienvenido, " + loggedInUser.getNombre() + "!");
-                    return loggedInUser; // Return the logged-in user
+                    return loggedInUser;
                 }
             } catch (InvalidEmailException e) {
                 System.out.println(e.getMessage());
@@ -43,7 +42,7 @@ public class LoginMenu {
             System.out.println("1. Intentar de nuevo");
             System.out.println("2. Volver al menú anterior");
             int opcion = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             if (opcion == 2) {
                 return null;

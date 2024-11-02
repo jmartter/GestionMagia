@@ -1,4 +1,3 @@
-// src/main/java/org/example/gestionmagia/Menu/Menu.java
 package org.example.gestionmagia.Menu;
 
 import org.example.gestionmagia.excepciones.InvalidEmailException;
@@ -46,7 +45,7 @@ public class Menu {
             System.out.println("8. Salir");
 
             int opcion = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             try {
                 switch (opcion) {

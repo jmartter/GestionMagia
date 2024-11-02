@@ -1,11 +1,13 @@
 // src/main/java/org/example/gestionmagia/Menu/MainMenu.java
 package org.example.gestionmagia.Menu;
 
+import org.example.gestionmagia.Truncate.Borrado;
 import org.example.gestionmagia.Usuario.DataInitializer;
 import org.example.gestionmagia.Usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 @Component
@@ -13,6 +15,8 @@ public class MainMenu {
 
     @Autowired
     private LoginMenu loginMenu;
+    @Autowired
+    private Borrado borrado;
 
     @Autowired
     private RegisterMenu registerMenu;
@@ -38,25 +42,31 @@ public class MainMenu {
             System.out.println("2. Registrarte");
             System.out.println("3. Salir");
 
-            int opcion = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            try {
+                int opcion = scanner.nextInt();
+                scanner.nextLine(); // Consume newline
 
-            switch (opcion) {
-                case 1:
-                    Usuario usuario = loginMenu.displayLoginMenu();
-                    if (usuario != null) {
-                        menu.displayMenu(usuario);
-                    }
-                    break;
-                case 2:
-                    registerMenu.displayRegisterMenu();
-                    break;
-                case 3:
-                    System.out.println("Saliendo...");
-                    scanner.close();
-                    System.exit(0);
-                default:
-                    System.out.println("Opción no válida. Inténtalo de nuevo.");
+                switch (opcion) {
+                    case 1:
+                        Usuario usuario = loginMenu.displayLoginMenu();
+                        if (usuario != null) {
+                            menu.displayMenu(usuario);
+                        }
+                        break;
+                    case 2:
+                        registerMenu.displayRegisterMenu();
+                        break;
+                    case 3:
+                        borrado.truncateUsuarioTable();
+                        borrado.truncateAlmacenamientoTable();
+                        scanner.close();
+                        System.exit(0);
+                    default:
+                        System.out.println("Opción no válida. Inténtalo de nuevo.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada no válida. Por favor, ingrese un número.");
+                scanner.nextLine(); // Clear the invalid input
             }
         }
     }

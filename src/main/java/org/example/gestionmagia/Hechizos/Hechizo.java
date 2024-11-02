@@ -68,6 +68,7 @@ public void lanzarHechizo4(Usuario usuario) {
 }
 
 public void lanzarHechizoMultiple(Usuario usuario) {
+    guardarAlmacenamiento(usuario, 5);
     fixedThreadPool3.submit(() -> {
         try {
             Thread.sleep(1000);

@@ -62,9 +62,6 @@ public class Aspecto {
     }
 
     public void captureThreadInfo(String threadName, Usuario usuario, int metodo) {
-        // Imprimir información del hilo
-        System.out.println("Thread: " + threadName + " is running");
-
         // Guardar en la base de datos
         Almacenamiento almacenamiento = new Almacenamiento();
         almacenamiento.setUsuario(usuario);

@@ -40,9 +40,9 @@ public class Menu {
             System.out.println("3. Hechizo 3");
             System.out.println("4. Hechizo 4");
             System.out.println("5. Ataque multiple ");
-            System.out.println("6. Mostrar información de hilos");
-            System.out.println("7. Volver al menú principal");
-            System.out.println("8. Salir");
+            System.out.println("6. Volver al menú principal");
+            System.out.println("7. Salir");
+
 
             int opcion = scanner.nextInt();
             scanner.nextLine();
@@ -65,16 +65,11 @@ public class Menu {
                         System.out.println("Ataque multiple");
                         hechizo.lanzarHechizoMultiple(usuario);
                         break;
-                    case 6:
-                        System.out.println("Información de los hilos:");
-                        for (String info : aspecto.getThreadInfoList()) {
-                            System.out.println(info);
-                        }
-                        break;
-                    case 7:
+
+                        case 6:
                         mainMenu.displayMainMenu();
                         return;
-                    case 8:
+                    case 7:
                         System.out.println("Saliendo...");
                         hechizo.cerrarExecutor(); // Cierra el ExecutorService al final
                         borrado.truncateUsuarioTable();

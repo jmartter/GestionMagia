@@ -6,6 +6,8 @@ import org.example.gestionmagia.Almacenamiento.Almacenamiento;
 import org.example.gestionmagia.Almacenamiento.AlmacenamientoRepository;
 import org.example.gestionmagia.excepciones.InvalidEmailException;
 import org.example.gestionmagia.Usuario.Usuario;
+import org.example.gestionmagia.excepciones.InvalidNameException;
+import org.example.gestionmagia.excepciones.InvalidPasswordException;
 import org.example.gestionmagia.excepciones.PrivilegeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,7 +22,6 @@ public class Aspecto {
 
     @Autowired
     private AlmacenamientoRepository almacenamientoRepository;
-
 
     private final List<String> threadInfoList = new ArrayList<>();
 
@@ -40,7 +41,23 @@ public class Aspecto {
     public void validateEmail(Usuario usuario) {
         String email = usuario.getCorreo();
         if (!(email.endsWith("@gmail.com") || email.endsWith("@yahoo.es") || email.endsWith("@outlook.es"))) {
-            throw new InvalidEmailException("Correo electrónico no válido: " + email+ ". Debe ser un correo de gmail.com, yahoo.es o outlook.es");
+            throw new InvalidEmailException("Correo electrónico no válido: " + email + ". Debe ser un correo de gmail.com, yahoo.es o outlook.es");
+        }
+    }
+
+    @Before("saveUsuarioMethod(usuario)")
+    public void validatePassword(Usuario usuario) {
+        String contraseña = usuario.getContraseña();
+        if (contraseña == null || contraseña.trim().isEmpty()) {
+            throw new InvalidPasswordException("La contraseña no puede estar vacía.");
+        }
+    }
+
+    @Before("saveUsuarioMethod(usuario)")
+    public void validateName(Usuario usuario) {
+        String nombre = usuario.getNombre();
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new InvalidNameException("El nombre de usuario no puede estar vacío.");
         }
     }
 
@@ -69,5 +86,4 @@ public class Aspecto {
         almacenamiento.setTimestamp(LocalDateTime.now());
         almacenamientoRepository.save(almacenamiento);
     }
-
 }

@@ -3,6 +3,8 @@ package org.example.gestionmagia.Menu;
 import org.example.gestionmagia.Usuario.Usuario;
 import org.example.gestionmagia.Usuario.UsuarioService;
 import org.example.gestionmagia.excepciones.InvalidEmailException;
+import org.example.gestionmagia.excepciones.InvalidNameException;
+import org.example.gestionmagia.excepciones.InvalidPasswordException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -49,7 +51,7 @@ public class RegisterMenu {
 
                         usuarioService.save(nuevoUsuario);
                         System.out.println("Usuario creado exitosamente.");
-                    } catch (InvalidEmailException e) {
+                    } catch (InvalidEmailException | InvalidNameException | InvalidPasswordException e) {
                         System.out.println(e.getMessage());
                     }
                     break;

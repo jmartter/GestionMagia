@@ -1,13 +1,13 @@
 // src/main/java/org/example/gestionmagia/Menu/Menu.java
 package org.example.gestionmagia.Menu;
 
-import org.example.gestionmagia.Excepciones.InvalidEmailException;
+import org.example.gestionmagia.excepciones.InvalidEmailException;
 import org.example.gestionmagia.Truncate.Borrado;
 import org.example.gestionmagia.Hechizos.Hechizo;
 import org.example.gestionmagia.Usuario.UsuarioService;
 import org.example.gestionmagia.aspecto.Aspecto;
 import org.example.gestionmagia.Usuario.Usuario;
-import org.example.gestionmagia.exception.PrivilegeException;
+import org.example.gestionmagia.excepciones.PrivilegeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

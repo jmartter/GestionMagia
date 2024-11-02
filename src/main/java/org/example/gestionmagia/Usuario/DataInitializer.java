@@ -10,7 +10,7 @@ public class DataInitializer {
     @Autowired
     private UsuarioService usuarioService;
 
-    public void initializeData() throws Exception {
+    public void initializeData(){
         if (usuarioService.findByNombre("admin") == null) {
             Usuario admin = new Usuario();
             admin.setNombre("admin");

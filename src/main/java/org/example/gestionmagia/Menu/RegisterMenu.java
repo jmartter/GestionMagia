@@ -3,7 +3,7 @@ package org.example.gestionmagia.Menu;
 
 import org.example.gestionmagia.Usuario.Usuario;
 import org.example.gestionmagia.Usuario.UsuarioService;
-import org.example.gestionmagia.Excepciones.InvalidEmailException;
+import org.example.gestionmagia.excepciones.InvalidEmailException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

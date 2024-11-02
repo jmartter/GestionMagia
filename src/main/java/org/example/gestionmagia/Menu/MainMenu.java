@@ -1,6 +1,7 @@
 // src/main/java/org/example/gestionmagia/Menu/MainMenu.java
 package org.example.gestionmagia.Menu;
 
+import org.example.gestionmagia.Usuario.DataInitializer;
 import org.example.gestionmagia.Usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,7 +20,16 @@ public class MainMenu {
     @Autowired
     private Menu menu;
 
+    @Autowired
+    private DataInitializer dataInitializer;
+
     public void displayMainMenu() {
+        try {
+            dataInitializer.initializeData(); // Initialize data
+        } catch (Exception e) {
+            System.out.println("Error initializing data: " + e.getMessage());
+        }
+
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("----------------------------------");

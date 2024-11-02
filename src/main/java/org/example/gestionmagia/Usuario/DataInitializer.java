@@ -1,24 +1,20 @@
 package org.example.gestionmagia.Usuario;
 
-import org.example.gestionmagia.Usuario.Usuario;
-import org.example.gestionmagia.Usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DataInitializer implements CommandLineRunner {
+public class DataInitializer {
 
     @Autowired
     private UsuarioService usuarioService;
 
-    @Override
-    public void run(String... args) throws Exception {
+    public void initializeData(){
         if (usuarioService.findByNombre("admin") == null) {
             Usuario admin = new Usuario();
             admin.setNombre("admin");
             admin.setContraseña("admin");
-            admin.setCorreo("admin");
+            admin.setCorreo("admin@gmail.com");
             admin.setAdministrador(true);
             usuarioService.save(admin);
         }
@@ -27,7 +23,7 @@ public class DataInitializer implements CommandLineRunner {
             Usuario usuario = new Usuario();
             usuario.setNombre("usuario");
             usuario.setContraseña("usuario");
-            usuario.setCorreo("usuario");
+            usuario.setCorreo("usuario@gmail.com");
             usuario.setAdministrador(false);
             usuarioService.save(usuario);
         }

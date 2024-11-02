@@ -1,10 +1,12 @@
 package org.example.gestionmagia.Menu;
 
+import org.example.gestionmagia.excepciones.InvalidEmailException;
 import org.example.gestionmagia.Truncate.Borrado;
 import org.example.gestionmagia.Hechizos.Hechizo;
+import org.example.gestionmagia.Usuario.UsuarioService;
 import org.example.gestionmagia.aspecto.Aspecto;
 import org.example.gestionmagia.Usuario.Usuario;
-import org.example.gestionmagia.exception.PrivilegeException;
+import org.example.gestionmagia.excepciones.PrivilegeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +22,13 @@ public class Menu {
     private Borrado borrado;
 
     @Autowired
+    private UsuarioService usuarioService;
+
+    @Autowired
     private Aspecto aspecto;
+
+    @Autowired
+    private MainMenu mainMenu;
 
     public void displayMenu(Usuario usuario) {
         Scanner scanner = new Scanner(System.in);
@@ -31,11 +39,13 @@ public class Menu {
             System.out.println("2. Hechizo 2");
             System.out.println("3. Hechizo 3");
             System.out.println("4. Hechizo 4");
-            System.out.println("5. Ataque multiple");
-            System.out.println("6. Mostrar información de hilos");
+            System.out.println("5. Ataque multiple ");
+            System.out.println("6. Volver al menú principal");
             System.out.println("7. Salir");
 
+
             int opcion = scanner.nextInt();
+            scanner.nextLine();
 
             try {
                 switch (opcion) {
@@ -55,12 +65,10 @@ public class Menu {
                         System.out.println("Ataque multiple");
                         hechizo.lanzarHechizoMultiple(usuario);
                         break;
-                    case 6:
-                        System.out.println("Información de los hilos:");
-                        for (String info : aspecto.getThreadInfoList()) {
-                            System.out.println(info);
-                        }
-                        break;
+
+                        case 6:
+                        mainMenu.displayMainMenu();
+                        return;
                     case 7:
                         System.out.println("Saliendo...");
                         hechizo.cerrarExecutor(); // Cierra el ExecutorService al final
@@ -72,6 +80,8 @@ public class Menu {
                         System.out.println("Opción no válida. Inténtalo de nuevo.");
                 }
             } catch (PrivilegeException e) {
+                System.out.println(e.getMessage());
+            } catch (InvalidEmailException e) {
                 System.out.println(e.getMessage());
             }
         }

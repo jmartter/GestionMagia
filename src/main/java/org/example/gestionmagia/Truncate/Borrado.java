@@ -1,4 +1,3 @@
-// src/main/java/org/example/gestionmagia/Borrado/Borrado.java
 package org.example.gestionmagia.Truncate;
 
 import org.springframework.stereotype.Component;

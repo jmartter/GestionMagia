@@ -1,6 +1,5 @@
 package org.example.gestionmagia.Usuario;
 
-
 import javax.persistence.*;
 
 @Entity

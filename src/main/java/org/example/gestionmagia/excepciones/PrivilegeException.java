@@ -1,4 +1,4 @@
-package org.example.gestionmagia.exception;
+package org.example.gestionmagia.excepciones;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

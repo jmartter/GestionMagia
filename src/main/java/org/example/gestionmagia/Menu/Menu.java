@@ -39,7 +39,7 @@ public class Menu {
             System.out.println("2. Hechizo 2");
             System.out.println("3. Hechizo 3");
             System.out.println("4. Hechizo 4");
-            System.out.println("5. Ataque multiple");
+            System.out.println("5. Ataque multiple ");
             System.out.println("6. Mostrar información de hilos");
             System.out.println("7. Volver al menú principal");
             System.out.println("8. Salir");

@@ -2,7 +2,7 @@
 
 ## Enlace del repositorio 
 
-[Repositorio](https://github.com/ConcurrenteCasoPracticoTema2/demo.git)
+[Repositorio](https://github.com/jmartter/GestionMagia.git)
 
 Proyecto realizado por Jose Daniel Martín, Hugo Sanchez, Fernando Santamaría y Jose Antonio Oyono
 

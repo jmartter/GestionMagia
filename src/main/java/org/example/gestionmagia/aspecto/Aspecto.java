@@ -2,6 +2,7 @@ package org.example.gestionmagia.aspecto;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.example.gestionmagia.Excepciones.InvalidEmailException;
 import org.example.gestionmagia.Usuario.Usuario;
 import org.example.gestionmagia.exception.PrivilegeException;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,18 @@ public class Aspecto {
 
     @Pointcut("execution(* org.example.gestionmagia.Hechizos.Hechizo.lanzar*(..))")
     public void lanzarMethods() {
+    }
+
+    @Pointcut("execution(* org.example.gestionmagia.Usuario.UsuarioService.save(..)) && args(usuario)")
+    public void saveUsuarioMethod(Usuario usuario) {
+    }
+
+    @Before("saveUsuarioMethod(usuario)")
+    public void validateEmail(Usuario usuario) {
+        String email = usuario.getCorreo();
+        if (!(email.endsWith("@gmail.com") || email.endsWith("@yahoo.es") || email.endsWith("@outlook.es"))) {
+            throw new InvalidEmailException("Correo electrónico no válido: " + email);
+        }
     }
 
     @Before("lanzarMethods() && args(usuario,..)")

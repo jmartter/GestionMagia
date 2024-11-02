@@ -1,3 +1,4 @@
+// src/main/java/org/example/gestionmagia/Menu/LoginService.java
 package org.example.gestionmagia.Menu;
 
 import org.example.gestionmagia.Usuario.Usuario;
@@ -11,9 +12,11 @@ public class LoginService {
     @Autowired
     private UsuarioService usuarioService;
 
-    public Usuario login(String nombre, String contraseña) {
+    public Usuario login(String nombre, String contraseña, String correo) {
         return usuarioService.findAll().stream()
-                .filter(usuario -> usuario.getNombre().equals(nombre) && usuario.getContraseña().equals(contraseña))
+                .filter(usuario -> usuario.getNombre().equals(nombre) &&
+                        usuario.getContraseña().equals(contraseña) &&
+                        usuario.getCorreo().equals(correo))
                 .findFirst()
                 .orElse(null);
     }

@@ -18,7 +18,7 @@ public class DataInitializer implements CommandLineRunner {
             Usuario admin = new Usuario();
             admin.setNombre("admin");
             admin.setContraseña("admin");
-            admin.setCorreo("admin");
+            admin.setCorreo("admin@gmail.com");
             admin.setAdministrador(true);
             usuarioService.save(admin);
         }
@@ -27,7 +27,7 @@ public class DataInitializer implements CommandLineRunner {
             Usuario usuario = new Usuario();
             usuario.setNombre("usuario");
             usuario.setContraseña("usuario");
-            usuario.setCorreo("usuario");
+            usuario.setCorreo("usuario@gmail.com");
             usuario.setAdministrador(false);
             usuarioService.save(usuario);
         }

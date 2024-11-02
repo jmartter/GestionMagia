@@ -1,7 +1,10 @@
+// src/main/java/org/example/gestionmagia/Menu/Menu.java
 package org.example.gestionmagia.Menu;
 
+import org.example.gestionmagia.Excepciones.InvalidEmailException;
 import org.example.gestionmagia.Truncate.Borrado;
 import org.example.gestionmagia.Hechizos.Hechizo;
+import org.example.gestionmagia.Usuario.UsuarioService;
 import org.example.gestionmagia.aspecto.Aspecto;
 import org.example.gestionmagia.Usuario.Usuario;
 import org.example.gestionmagia.exception.PrivilegeException;
@@ -20,7 +23,13 @@ public class Menu {
     private Borrado borrado;
 
     @Autowired
+    private UsuarioService usuarioService;
+
+    @Autowired
     private Aspecto aspecto;
+
+    @Autowired
+    private MainMenu mainMenu;
 
     public void displayMenu(Usuario usuario) {
         Scanner scanner = new Scanner(System.in);
@@ -33,9 +42,11 @@ public class Menu {
             System.out.println("4. Hechizo 4");
             System.out.println("5. Ataque multiple");
             System.out.println("6. Mostrar información de hilos");
-            System.out.println("7. Salir");
+            System.out.println("7. Volver al menú principal");
+            System.out.println("8. Salir");
 
             int opcion = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
 
             try {
                 switch (opcion) {
@@ -62,6 +73,9 @@ public class Menu {
                         }
                         break;
                     case 7:
+                        mainMenu.displayMainMenu();
+                        return;
+                    case 8:
                         System.out.println("Saliendo...");
                         hechizo.cerrarExecutor(); // Cierra el ExecutorService al final
                         borrado.truncateUsuarioTable();
@@ -72,6 +86,8 @@ public class Menu {
                         System.out.println("Opción no válida. Inténtalo de nuevo.");
                 }
             } catch (PrivilegeException e) {
+                System.out.println(e.getMessage());
+            } catch (InvalidEmailException e) {
                 System.out.println(e.getMessage());
             }
         }
